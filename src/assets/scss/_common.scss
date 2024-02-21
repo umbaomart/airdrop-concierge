@@ -36,6 +36,10 @@ main {
   position: relative;
 }
 
+section {
+  z-index: unset;
+}
+
 
 
 
@@ -167,6 +171,18 @@ PC/SP
   }
   100% {
     transform: translateY(0); /* Return to the starting position */
+  }
+}
+
+@keyframes ghostWhiteTask {
+  0% {
+    transform: scaleX(-1) rotate(7deg) translateY(0); /* Starting position */
+  }
+  50% {
+    transform: scaleX(-1) rotate(7deg) translateY(-20px); /* Floating up */
+  }
+  100% {
+    transform: scaleX(-1) rotate(7deg) translateY(0); /* Return to the starting position */
   }
 }
 
@@ -406,5 +422,23 @@ PC/SP
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes crawlAnimation2 {
+  0% {
+    transform: scaleX(-1) translateX(0);
+  }
+  25% {
+    transform: scaleX(-1) translateY(20px);
+  }
+  50% {
+    transform: scaleX(-1) translateX(30px);
+  }
+  75% {
+    transform: scaleX(-1) translateY(20px);
+  }
+  100% {
+    transform: scaleX(-1) translateX(0);
   }
 }
