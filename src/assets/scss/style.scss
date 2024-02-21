@@ -1,0 +1,20 @@
+@import '_base/variables'; // set variables
+@import '_base/fonts'; // set fonts
+@import '_base/helpers'; // helpers class
+@import '_base/reset'; // reset browser css
+
+@import '_mixin/fontFeature'; // miner property
+@import '_mixin/fontSmoothing'; // miner property
+@import '_mixin/m-mediaquery'; // media query
+@import '_mixin/m-transition'; // transition
+@import '_mixin/m-browserHack'; // browser hack(IE・Edge)
+@import '_mixin/m-hover'; // hover action
+@import '_mixin/m-flex'; // flex code
+
+@import '_mixin/m-text'; // title style
+@import '_mixin/m-wysiwygContent'; // wysiwyg style
+
+@import 'common'; // common style (<body>, PC・SP toggle)
+
+@import './_page/home'; // layout style
+@import './_page/task'; // layout style

@@ -1,0 +1,554 @@
+.home__wrapper {
+  width: 100%;
+  height: get-vw-desktop(1080px);
+
+  @include m-mqMax {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+.app__main {
+  height: inherit;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.appsolute {
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+}
+
+.app__bg {
+  z-index: 2;
+
+  &--clouds {
+    width: get-vw-desktop(119px);
+    top: get-vw-desktop(107px);
+    z-index: 1;
+    opacity: 0;
+    // right: get-vw-desktop(26px);
+    // left: 100vw;
+
+    &.cloud-01 {
+      width: get-vw-desktop(130px);
+      top: get-vw-desktop(155px);
+      // left: get-vw-desktop(55px);
+      animation: cloudsAnimation 23s infinite;
+      animation-delay: 0;
+
+      @include m-mqMax() {
+        width: get-vw-mobile(calc(121px / 2));
+        top: get-vw-mobile(calc(51px / 2));
+        animation: cloudsAnimation 23s infinite;
+        animation-delay: 0;
+      }
+    }
+
+    &.cloud-02 {
+      width: get-vw-desktop(217px);
+      top: get-vw-desktop(383px);
+      // left: get-vw-desktop(125px);
+      animation: cloudsAnimation 26s infinite;
+      animation-delay: 20;
+
+      @include m-mqMax() {
+        width: get-vw-mobile(calc(141px / 2));
+        top: get-vw-mobile(calc(202px / 2));
+        animation: cloudsAnimation 26s infinite;
+        animation-delay: 20;
+      }
+    }
+
+    &.cloud-03 {
+      width: get-vw-desktop(150px);
+      top: get-vw-desktop(110px);
+      // left: get-vw-desktop(754px);
+      animation: cloudsAnimation 28s infinite;
+      animation-delay: 15s;
+
+      @include m-mqMax() {
+        width: get-vw-mobile(calc(131px / 2));
+        top: get-vw-mobile(calc(-10px / 2));
+        animation: cloudsAnimation 28s infinite;
+        animation-delay: 15s;
+      }
+    }
+
+    &.cloud-04 {
+      width: get-vw-desktop(264px);
+      top: get-vw-desktop(132px);
+      animation: cloudsAnimation 30s infinite;
+      // right: get-vw-desktop(305px);
+      animation-delay: 3s;
+
+      @include m-mqMax() {
+        width: get-vw-mobile(calc(255px / 2));
+        top: get-vw-mobile(calc(28px / 2));
+        animation: cloudsAnimation 30s infinite;
+        animation-delay: 3s;
+      }
+    }
+
+    &.cloud-05 {
+      width: get-vw-desktop(211px);
+      top: get-vw-desktop(303px);
+      // right: get-vw-desktop(18px);
+      animation: cloudsAnimation 27s infinite;
+      animation-delay: 10s;
+
+      @include m-mqMax() {
+        width: get-vw-mobile(calc(121px / 2));
+        top: get-vw-mobile(calc(171px / 2));
+        animation: cloudsAnimation 27s infinite;
+        animation-delay: 10s;
+      }
+    }
+  }
+
+  &--dragon {
+    top: get-vw-desktop(84px);
+    left: get-vw-desktop(212px);
+    width: get-vw-desktop(367px);
+    animation: floatAnimation 2s infinite;
+
+    @include m-mqMax() {
+      width: get-vw-mobile(calc(261px / 2));
+      top: get-vw-mobile(calc(272px / 2));
+      left: get-vw-mobile(0px);
+      animation: floatAnimation 2s infinite;
+      z-index: 5;
+    }
+  }
+
+  &--archer {
+    top: get-vw-desktop(218px);
+    right: get-vw-desktop(462px);
+    width: get-vw-desktop(161px);
+    animation: walkingAnimation 2s infinite alternate;
+
+    @include m-mqMax() {
+      width: get-vw-mobile(calc(131px / 2));
+      top: get-vw-mobile(calc(315px / 2));
+      right: get-vw-mobile(calc(77px / 2));
+      animation: walkingAnimation 2s infinite alternate;
+      z-index: 5;
+    }
+  }
+
+  &--ghost-fork {
+    width: get-vw-desktop(146px);
+    top: get-vw-desktop(120px);
+    right: get-vw-desktop(118px);
+    animation: flyAnimation 10s infinite;
+
+    @include m-mqMax() {
+      width: get-vw-mobile(calc(146px / 2));
+      top: get-vw-mobile(calc(615px / 2));
+      right: get-vw-mobile(calc(-15px / 2));
+      animation: flyAnimation 10s infinite;
+      z-index: 5;
+    }
+  }
+
+  &--ghost-witch {
+    width: get-vw-desktop(136px);
+    top: get-vw-desktop(384px);
+    right: get-vw-desktop(187px);
+    animation: ghostWitchAnimation 2s infinite;
+
+    @include m-mqMax() {
+      width: get-vw-mobile(calc(89px / 2));
+      top: get-vw-mobile(calc(35px / 2));
+      right: get-vw-mobile(calc(28px / 2));
+      animation: ghostWitchAnimation 2s infinite;
+    }
+  }
+
+  &--ghost-white {
+    top: get-vw-desktop(755px);
+    width: get-vw-desktop(119px);
+    right: get-vw-desktop(864px);
+    z-index: 5;
+    animation: ghostWhiteAnimation 5s infinite;
+
+    @include m-mqMax() {
+      width: get-vw-mobile(calc(122px / 2));
+      top: auto;
+      bottom: get-vw-mobile(calc(149px / 2));
+      right: get-vw-mobile(calc(9px / 2));
+      animation: princeAnimation 8s infinite;
+    }
+  }
+
+  &--witch {
+    width: get-vw-desktop(147px);
+    left: get-vw-desktop(75px);
+    top: get-vw-desktop(413px);
+    animation: ghostWitchAnimation 5s infinite;
+
+    @include m-mqMax() {
+      width: get-vw-mobile(calc(147px / 2));
+      left: get-vw-mobile(calc(45px / 2));
+      top: auto;
+      bottom: get-vw-mobile(calc(412px / 2));
+      animation: ghostWitchAnimationSp 5s infinite;
+      z-index: 5;
+
+      img {
+        transform: rotate(49deg * 1.5);
+      }
+    }
+  }
+
+  &--banner {
+    left: 50%;
+    transform: translateX(-50%);
+    top: get-vw-desktop(168px);
+    width: get-vw-desktop(575px);
+
+    @include m-mqMax() {
+      width: get-vw-mobile(calc(575px / 2));
+      top: get-vw-mobile(calc(96px / 2));
+    }
+  }
+
+  &--key {
+    top: get-vw-desktop(632px);
+    left: get-vw-desktop(848px);
+    width: get-vw-desktop(136px);
+    z-index: 4;
+    animation: flipAnimation 3s infinite;
+
+    @include m-mqMax() {
+      width: get-vw-mobile(calc(136px / 2));
+      top: auto;
+      bottom: get-vw-mobile(calc(464px / 2));
+      left: auto;
+      right: get-vw-mobile(calc(89px / 2));
+      animation: flipAnimation 3s infinite;
+    }
+  }
+
+  &--prince {
+    width: get-vw-desktop(148px);
+    top: get-vw-desktop(743px);
+    left: get-vw-desktop(56px);
+    animation: princeAnimation 2s infinite;
+
+    @include m-mqMax {
+      display: none;
+    }
+  }
+
+  &--soldier {
+    top: get-vw-desktop(675px);
+    left: get-vw-desktop(240px);
+    width: get-vw-desktop(276px);
+    z-index: 3;
+    animation: breathAnimation 2s infinite;
+
+    @include m-mqMax() {
+      width: get-vw-mobile(calc(212px / 2));
+      top: auto;
+      bottom: get-vw-mobile(calc(51px / 2));
+      left: get-vw-mobile(calc(24px / 2));
+      animation: breathAnimation 2s infinite;
+    }
+  }
+
+  &--treasure {}
+
+  &--treasure-black {
+    top: get-vw-desktop(836px);
+    right: get-vw-desktop(353px);
+    width: get-vw-desktop(172px);
+    animation: crawlAnimation 2s infinite;
+
+    @include m-mqMax() {
+      width: get-vw-mobile(calc(208px / 2));
+      top: auto;
+      bottom: get-vw-mobile(calc(126px / 2));
+      right: get-vw-mobile(calc(186px / 2));
+      animation: crawlAnimation 2s infinite;
+    }
+  }
+}
+
+.banner__container {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.banner__title,
+.banner__text {
+  width: 100%;
+  display: block;
+  position: absolute;
+  text-align: center;
+}
+
+.banner__title {
+  font-weight: normal;
+  top: get-vw-desktop(41px);
+  font-size: get-vw-desktop(38px);
+
+  @include m-mqMax() {
+    top: get-vw-mobile(calc(41px / 2));
+    font-size: get-vw-mobile(calc(38px / 2));
+  }
+}
+
+.banner__text {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: get-vw-desktop(34px);
+
+  @include m-mqMax() {
+    font-size: get-vw-mobile(calc(34px / 2));
+  }
+}
+
+.iconTreasure {
+  width: get-vw-desktop(175px);
+  margin-right: get-vw-desktop(25px);
+  animation: shakeAnimation 2s 2s infinite;
+  animation-delay: 1;
+
+  @include m-mqMax() {
+    width: get-vw-mobile(calc(175px / 2));
+    margin-right: 0;
+    animation: none;
+    position: absolute;
+    left: -10%;
+    top: 70%;
+    animation: breathAnimation 2s infinite;
+
+    img {
+      transform: rotate(13deg);
+    }
+  }
+}
+
+.text {
+  display: inline-block;
+  position: absolute;
+
+  &__title {
+    letter-spacing: .1em;
+
+    .text-balance & {
+      letter-spacing: .2em;
+      font-size: get-vw-desktop(48px);
+
+      @include m-mqMax() {
+        font-size: get-vw-mobile(calc(41px / 2));
+      }
+    }
+
+    .text-treasure & {
+      font-size: get-vw-desktop(72px);
+      letter-spacing: .1em;
+      white-space: nowrap;
+
+      @include m-mqMax() {
+        font-size: get-vw-mobile(calc(62px / 2));
+      }
+
+      .text__sm {
+        font-size: get-vw-desktop(45px);
+
+        @include m-mqMax() {
+          font-size: get-vw-mobile(calc(38px / 2));
+        }
+      }
+    }
+
+    .text-automation & {
+      letter-spacing: .24em;
+      font-size: get-vw-desktop(46px);
+
+      @include m-mqMax() {
+        font-size: get-vw-mobile(calc(38px / 2));
+      }
+    }
+
+    .text-private-key & {
+      font-size: get-vw-desktop(37.7px);
+      letter-spacing: .16em;
+
+      @include m-mqMax() {
+        font-size: get-vw-mobile(calc(32px / 2));
+        white-space: nowrap;
+      }
+    }
+
+    .text-password & {
+      font-size: get-vw-desktop(41px);
+      letter-spacing: .16em;
+
+      @include m-mqMax() {
+        font-size: get-vw-mobile(calc(38px / 2));
+      }
+    }
+  }
+
+  &-sm {
+    font-size: get-vw-desktop(45px);
+  }
+
+  &--white {
+    color: $white;
+    background: $black;
+    border-radius: get-vw-desktop(8px);
+    padding: get-vw-desktop(34px) get-vw-desktop(50px);
+    outline-offset: get-vw-desktop(-12px);
+    outline: get-vw-desktop(5px) solid $white;
+    box-shadow: 5px 5px 2px rgba($color: $black, $alpha: .5);
+    z-index: 2;
+
+    @include m-mqMax() {
+      padding: get-vw-mobile(calc(34px / 2)) get-vw-mobile(calc(50px / 2));
+      outline-offset: get-vw-mobile(calc(-12px / 2));
+      outline: get-vw-mobile(calc(5px / 2)) solid $white;
+      box-shadow: get-vw-mobile(calc(5px / 2)) get-vw-mobile(calc(5px / 2)) get-vw-mobile(calc(2px / 2)) rgba($color: $black, $alpha: .5);
+    }
+
+    &.p-sm {
+      padding: get-vw-desktop(25px) get-vw-desktop(50px);
+
+      @include m-mqMax() {
+        padding: get-vw-mobile(calc(28px / 2)) get-vw-mobile(calc(50px / 2));
+      }
+    }
+  }
+
+  &--yellow {
+    outline-offset: get-vw-desktop(-12px);
+    outline: get-vw-desktop(5px) solid $white;
+    border-radius: get-vw-desktop(8px);
+    background-image: -moz-linear-gradient(90deg, rgb(255, 33, 68) 0%, rgb(255, 33, 68) 26%, rgb(185, 4, 34) 50%, rgb(220, 19, 51) 59%, rgb(255, 33, 68) 73%, rgba(255, 33, 68, 0.99608) 100%);
+    background-image: -webkit-linear-gradient(90deg, rgb(255, 33, 68) 0%, rgb(255, 33, 68) 26%, rgb(185, 4, 34) 50%, rgb(220, 19, 51) 59%, rgb(255, 33, 68) 73%, rgba(255, 33, 68, 0.99608) 100%);
+    background-image: -ms-linear-gradient(90deg, rgb(255, 33, 68) 0%, rgb(255, 33, 68) 26%, rgb(185, 4, 34) 50%, rgb(220, 19, 51) 59%, rgb(255, 33, 68) 73%, rgba(255, 33, 68, 0.99608) 100%);
+    opacity: 1;
+    padding: get-vw-desktop(40px) get-vw-desktop(50px);
+    color: rgb(255, 216, 0);
+    letter-spacing: .2em;
+    text-align: center;
+    line-height: 1;
+    -moz-transform: scale(0.9, 1);
+    -webkit-transform: scale(0.9, 1);
+    -ms-transform: scale(0.9, 1);
+    font-size: get-vw-desktop(46px);
+
+    @include m-mqMax() {
+      outline-offset: get-vw-mobile(calc(-12px / 2));
+      outline: get-vw-mobile(calc(5px / 2)) solid $white;
+      border-radius: get-vw-mobile(calc(8px / 2));
+      padding: get-vw-mobile(calc(40px / 2)) get-vw-mobile(calc(50px / 2));
+      white-space: nowrap;
+      font-size: get-vw-desktop(calc(46px / 2));
+    }
+
+    text-shadow: get-vw-desktop(-4px)get-vw-desktop(4px) 0 #2b2b2b,
+    get-vw-desktop(4px)get-vw-desktop(4px) 0 #2b2b2b,
+    get-vw-desktop(4px) get-vw-desktop(-4px) 0 #2b2b2b,
+    get-vw-desktop(-4px) get-vw-desktop(-4px) 0 #2b2b2b,
+    get-vw-desktop(-8px)get-vw-desktop(8px) 0 rgba($color: $white, $alpha: .21),
+    get-vw-desktop(8px)get-vw-desktop(8px) 0 rgba($color: $white, $alpha: .21),
+    get-vw-desktop(8px) get-vw-desktop(-8px) 0 rgba($color: $white, $alpha: .21),
+    get-vw-desktop(-8px) get-vw-desktop(-8px) 0 rgba($color: $white, $alpha: .21);
+
+    &:before {
+      content: '';
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      border-radius: get-vw-desktop(8px);
+      transform: translate(-50%, -50%);
+      width: calc(100% + get-vw-desktop(10px));
+      height: calc(100% + get-vw-desktop(10px));
+      background: rgba($color: $white, $alpha: .21);
+      z-index: -1;
+      box-shadow: 0 0 2px $black;
+    }
+  }
+
+  &-balance {
+    top: get-vw-desktop(317px);
+    left: get-vw-desktop(442px);
+    z-index: 3;
+    padding: get-vw-desktop(30px) get-vw-desktop(50px);
+
+    @include m-mqMax() {
+      top: get-vw-mobile(calc(365px / 2));
+      left: 50%;
+      transform: translateX(-50%);
+      padding: get-vw-mobile(calc(30px / 2)) get-vw-mobile(calc(50px / 2));
+    }
+  }
+
+  &-treasure {
+    top: get-vw-desktop(372px);
+    left: get-vw-desktop(485px);
+    padding: get-vw-desktop(34px) get-vw-desktop(129px) get-vw-desktop(34px) get-vw-desktop(50px);
+    @include m-flex($fd: row, $fw: nowrap, $jc: center, $ai: center);
+    font-size: get-vw-desktop(62px);
+
+    @include m-mqMax() {
+      top: get-vw-mobile(calc(417px / 2));
+      left: 50%;
+      transform: translateX(-50%);
+      padding: get-vw-mobile(calc(70px / 2)) get-vw-mobile(calc(70px / 2)) get-vw-mobile(calc(44px / 2)) get-vw-mobile(calc(70px / 2));
+      font-size: get-vw-mobile(calc(62px / 2));
+    }
+  }
+
+  &-private-key {
+    top: get-vw-desktop(616px);
+    left: get-vw-desktop(422px);
+    z-index: 3;
+
+    @include m-mqMax() {
+      top: auto;
+      bottom: get-vw-mobile(calc(595px / 2));
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &-password {
+    top: get-vw-desktop(688px);
+    left: get-vw-desktop(481px);
+    padding: get-vw-desktop(50px) get-vw-desktop(45px);
+
+    @include m-mqMax() {
+      top: auto;
+      left: 50%;
+      bottom: get-vw-mobile(calc(480px / 2));
+      transform: translateX(-50%);
+      padding: get-vw-mobile(calc(55px / 2)) get-vw-mobile(calc(75px / 2)) get-vw-mobile(calc(50px / 2));
+    }
+  }
+
+  &-automation {
+    top: get-vw-desktop(662px);
+    right: get-vw-desktop(428px);
+
+    @include m-mqMax() {
+      top: auto;
+      bottom: get-vw-mobile(calc(270px / 2));
+      right: 50%;
+      transform: translateX(50%);
+    }
+  }
+}

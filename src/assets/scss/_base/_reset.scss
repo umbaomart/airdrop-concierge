@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  position: relative;
+  z-index: 2;
+}
+
+figure {
+  font-size: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  font-size: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+p {
+  font-size: 18px;
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+textarea {
+  font-family: $font--Megadot9;
+}

@@ -1,0 +1,15 @@
+@mixin m-transition($property: all, $duration: 0.6s, $timing: ease, $delay: 0s) {
+  transition: $property $duration $timing $delay;
+}
+
+@mixin m-transitionPC($property: all, $duration: 0.6s, $timing: ease, $delay: 0s) {
+  @include m-mqMin {
+    transition: $property $duration $timing $delay;
+  }
+}
+
+@mixin m-transitionSP($property: all, $duration: 0.6s, $timing: ease, $delay: 0s) {
+  @include m-mqMax {
+    transition: $property $duration $timing $delay;
+  }
+}

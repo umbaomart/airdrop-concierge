@@ -1,0 +1,11 @@
+@mixin m-IEhack {
+  @media all and (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+@mixin m-Edgehack {
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}

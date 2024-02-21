@@ -1,0 +1,410 @@
+/*====================================================================
+COMMON LAYOUT
+====================================================================*/
+html {
+  font-family: $font--Megadot9;
+  font-size: 62.5%; // 1rem = 10px
+  background-color: $body;
+
+  // SP
+  @include m-mqMax {
+    font-size: 16px;
+  }
+}
+
+body {
+  @include fontFeature;
+  overflow-x: hidden;
+  position: relative;
+
+  &.modal-is-active {
+    overflow: hidden;
+  }
+
+  &.menu-is-active {
+    overflow: auto;
+  }
+
+  // SP
+  @include m-mqMax {
+    min-width: inherit;
+    overflow: scroll;
+  }
+}
+
+main {
+  position: relative;
+}
+
+
+
+
+/*-----------------------------------------------
+PC/SP
+------------------------------------------------*/
+// PC
+.m-pcDb {
+  display: block;
+}
+
+.m-pcDib {
+  display: inline-block;
+}
+
+.m-pcDin {
+  display: inline;
+}
+
+.m-pcDf {
+  display: flex;
+}
+
+.m-pcDt {
+  display: table;
+}
+
+.m-pcDtc {
+  display: table-cell;
+}
+
+.m-spDb,
+.m-spDib,
+.m-spDin,
+.m-spDf,
+.m-spDt,
+.m-spDtc {
+  display: none;
+}
+
+// SP
+@include m-mqMax {
+
+  .m-pcDb,
+  .m-pcDib,
+  .m-pcDin,
+  .m-pcDf,
+  .m-pcDt,
+  .m-pcDtc {
+    display: none;
+  }
+
+  .m-spDb {
+    display: block;
+  }
+
+  .m-spDib {
+    display: inline-block;
+  }
+
+  .m-spDin {
+    display: inline;
+  }
+
+  .m-spDf {
+    display: flex;
+  }
+
+  .m-spDt {
+    display: table;
+  }
+
+  .m-spDtc {
+    display: table-cell;
+  }
+}
+
+// Keyframes Animation
+@keyframes flyAnimation {
+  0% {
+    right: 0%; /* Starting position outside the left of the screen */
+    transform: scaleX(1); /* Initial scale (not flipped) */
+  }
+  25% {
+    transform: scaleX(1); /* Flip to the right */
+    transform: translateX(get-vw-desktop(80px)); /* Apply horizontal curve */
+    transform: translateY(get-vw-desktop(-50px)); /* Apply vertical curve */
+  }
+  49% {
+    transform: scaleX(1); // Flip to the right
+  }
+  50% {
+    right: 60%; /* Halfway position at the center of the screen */
+    transform: scaleX(-1); /* Flip horizontally */
+  }
+  75% {
+    transform: translateY(get-vw-desktop(-50px)) translateX(get-vw-desktop(-100px)) scaleX(-1); /* Apply horizontal curve */
+  }
+  99% {
+    transform: scaleX(-1); // Flip to the left
+  }
+  100% {
+    right: 0%; /* Return to the starting position */
+    transform: scaleX(1); /* Reset scale (not flipped) */
+  }
+}
+
+@keyframes floatAnimation {
+  0% {
+    bottom: 0%; /* Starting position at the bottom of the screen */
+    transform: scale(1); /* Initial scale */
+  }
+  50% {
+    bottom: 100px; /* Floating position at the middle of the screen */
+    transform: scale(1.1); /* Scale up */
+  }
+  100% {
+    bottom: 0%; /* Return to the starting position at the bottom of the screen */
+    transform: scale(1); /* Reset scale */
+  }
+}
+
+@keyframes ghostWitchAnimation {
+  0% {
+    transform: translateY(0); /* Starting position */
+  }
+  50% {
+    transform: translateY(-20px); /* Floating up */
+  }
+  100% {
+    transform: translateY(0); /* Return to the starting position */
+  }
+}
+
+@keyframes ghostWitchAnimationSp {
+  0% {
+    transform: translateY(0); /* Starting position */
+  }
+  50% {
+    transform: translateY(20px); /* Floating up */
+  }
+  100% {
+    transform: translateY(0); /* Return to the starting position */
+  }
+}
+
+@keyframes flipAnimation {
+  0% {
+    transform: scaleY(1) rotate(0deg); /* Starting scale (not flipped) and no rotation */
+  }
+  25% {
+    transform: scaleY(-1) rotate(15deg); /* Flip vertically and rotate -15 degrees */
+  }
+  50% {
+    transform: scaleY(1) rotate(0deg); /* Return to the starting scale and no rotation */
+  }
+  75% {
+    transform: scaleY(-1) rotate(15deg); /* Flip vertically and rotate 15 degrees */
+  }
+  100% {
+    transform: scaleY(1) rotate(0deg); /* Return to the starting scale and no rotation */
+  }
+}
+
+@keyframes walkingAnimation {
+  0% {
+    transform: translateX(0) translateY(0); /* Starting position */
+  }
+  16% {
+    transform: translateX(-5px) translateY(-5px); /* Walk to the left and jump up */
+  }
+  33% {
+    transform: translateX(-10px) translateY(0); /* Continue walking to the left */
+  }
+  49% {
+    transform: translateX(-15px) translateY(-5px); /* Jump up */
+  }
+  66% {
+    transform: translateX(-20px) translateY(0); /* Continue walking to the left */
+  }
+  82% {
+    transform: translateX(-25px) translateY(-5px); /* Jump up */
+  }
+  100% {
+    transform: translateX(-30px) translateY(0); /* Final jump up */
+  }
+}
+
+@keyframes cloudsAnimation {
+  0% {
+    opacity: 1;
+    transform: translateX(100vw); /* Starting position outside the left of the screen */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-40vw); /* Ending position outside the right of the screen */
+  }
+}
+
+@keyframes ghostWhiteAnimation {
+  0% {
+    right: 30%; /* Starting position outside the right of the screen */
+    transform: scaleX(1); /* Initial scale (not flipped) */
+  }
+  25% {
+    transform: scaleX(1); /* Flip to the right */
+    transform: translateX(get-vw-desktop(80px)); /* Apply horizontal curve */
+    // transform: translateY(get-vw-desktop(-50px)); /* Apply vertical curve */
+  }
+  49% {
+    transform: scaleX(1); // Flip to thrighte
+  }
+  50% {
+    right: 50%; /* Halfway position at the center of the screen */
+    transform: scaleX(-1); /* Flip horizontally */
+  }
+  75% {
+    transform: translateX(get-vw-desktop(-100px)) scaleX(-1); /* Apply horizontal curve */
+  }
+  99% {
+    transform: scaleX(-1); // Flip to theright
+  }
+  100% {
+    right: 30%; /* Return to the starting position */
+    transform: scaleX(1); /* Reset scale (not flipped) */
+  }
+}
+
+@keyframes wiggleAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes shakeAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-5px);
+  }
+  20% {
+    transform: translateX(5px);
+  }
+  30% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  60% {
+    transform: translateX(5px);
+  }
+  70% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  90% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes breathAnimation {
+  0% {
+    transform: scale(.9);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(.9);
+  }
+}
+
+@keyframes soldierAnimation {
+  0% {
+    transform: translateX(0) scaleX(-1);
+  }
+  25% {
+    transform: translateX(25%) scaleX(-1);
+  }
+  50% {
+    transform: translateX(50%) scaleX(-1);
+  }
+  75% {
+    transform: translateX(75%) scaleX(-1);
+  }
+  100% {
+    transform: translateX(100%) scaleX(-1);
+  }
+}
+
+
+@keyframes princeAnimation {
+  0%, 100% {
+    transform: translateX(0) translateY(0); /* Starting and ending position */
+  }
+  8%, 92% {
+    transform: translateX(-2px) translateY(-2px) rotate(1deg); /* Walk to the left and jump up */
+  }
+  16%, 84% {
+    transform: translateX(-5px) translateY(-5px) rotate(3deg); /* Walk to the left and jump up */
+  }
+  24%, 76% {
+    transform: translateX(-8px) translateY(-2px) rotate(1deg); /* Walk to the left and jump up */
+  }
+  33%, 67% {
+    transform: translateX(-10px) translateY(0); /* Continue walking to the left */
+  }
+  41%, 59% {
+    transform: translateX(-13px) translateY(-2px) rotate(1deg); /* Continue walking to the left */
+  }
+  49%, 51% {
+    transform: translateX(-15px) translateY(-5px) rotate(3deg); /* Jump up */
+  }
+  57%, 43% {
+    transform: translateX(-18px) translateY(-2px) rotate(1deg); /* Continue walking to the left */
+  }
+  66%, 34% {
+    transform: translateX(-20px) translateY(0); /* Continue walking to the left */
+  }
+  74%, 26% {
+    transform: translateX(-23px) translateY(-2px) rotate(1deg); /* Continue walking to the left */
+  }
+  82%, 18% {
+    transform: translateX(-25px) translateY(-5px) rotate(3deg); /* Jump up */
+  }
+  90%, 10% {
+    transform: translateX(-28px) translateY(-2px) rotate(1deg); /* Continue walking to the left */
+  }
+}
+
+@keyframes crawlAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateY(20px);
+  }
+  50% {
+    transform: translateX(30px);
+  }
+  75% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

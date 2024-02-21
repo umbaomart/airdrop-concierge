@@ -1,0 +1,11 @@
+@mixin m-text($fsPC: 18px, $fsSP: 12px, $fw: normal, $ls: 0, $lh: 1.7, $color: $black) {
+  font-size: $fsPC;
+  font-weight: $fw;
+  letter-spacing: $ls;
+  line-height: $lh;
+  color: $color;
+
+  @include m-mqMax {
+    font-size: $fsSP;
+  }
+}

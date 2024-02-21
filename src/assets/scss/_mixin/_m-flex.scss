@@ -1,0 +1,7 @@
+@mixin m-flex($fd: row, $fw: nowrap, $jc: flex-start, $ai: stretch) {
+  display: flex;
+  align-items: $ai;
+  justify-content: $jc;
+  flex-wrap: $fw;
+  flex-direction: $fd;
+}
