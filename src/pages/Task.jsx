@@ -1,3 +1,15 @@
+/**
+ * Task Component.
+ * This component represents a task and its associated UI elements.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered Task component.
+ */
+
+import { useEffect } from 'react';
+import { gsap, Power3 } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import bgBricks from '../assets/img/bg-bricks.jpg'
 import CollectionItem from '../components/CollectionItem'
 
@@ -8,6 +20,15 @@ import ghostWhite from './../assets/img/char-ghost-white.png'
 import dragon from './../assets/img/char-dragon.png'
 import treasure from './../assets/img/kv-treasure.png'
 
+gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
+
+/**
+ * Task Component.
+ * This component represents a task and its associated UI elements.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered Task component.
+ */
 export default function Task() {
     const divStyle = {
         backgroundImage: `url(${bgBricks})`,
@@ -16,10 +37,44 @@ export default function Task() {
         minHeight: '100vh'
     }
 
+    /**
+     * Use effect to initialize animations on component mount.
+     */
+    useEffect(() => {
+        // Create a timeline for the initial animation
+        const initialAnimation = gsap.timeline();
+
+        initialAnimation.to([".main__header", ".collection__item"], {
+            opacity: 0,
+            y: 50,
+        });
+
+        // Use ScrollTrigger for batch animations
+        ScrollTrigger.batch([".main__header", ".collection__item"], {
+            interval: 0.5,
+            onEnter: (batch) => {
+                gsap.to(batch, {
+                    opacity: 1,
+                    visibility: 'visible',
+                    y: 0,
+                    stagger: 0.1,
+                    overwrite: true,
+                    ease: Power3.easeOut,
+                });
+            },
+            start: "20px bottom",
+            end: "bottom 20px",
+        });
+
+        // Trigger the animation when the component mounts
+        initialAnimation.play();
+    }, []);
+
+
     return (
-        <div className="task__wrapper" style={divStyle}>
-            <div className="task__inner">
-                <header className="task__header">
+        <div className="main__wrapper" style={divStyle}>
+            <div className="main__inner">
+                <header className="main__header">
                     <nav className="nav">
                         <div className="nav__item">
                             <p className="nav__text">エアドロコンシェルジュ</p>
@@ -29,7 +84,7 @@ export default function Task() {
                         </div>
                     </nav>
                 </header>
-                <div className="task__body">
+                <div className="main__body">
                     <div className="collection">
                         <div className="collection__item">
                             <div className="collection__header">

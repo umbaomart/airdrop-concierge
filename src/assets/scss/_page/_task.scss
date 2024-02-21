@@ -1,12 +1,13 @@
-.task__wrapper {
+.main__wrapper {
   color: $white;
   overflow: hidden;
 }
 
-.task__inner {
+.main__inner {
   margin: 0 auto;
   padding: 0 2rem;
   max-width: 80rem;
+  position: relative;
 
   @include m-mqMax {
     max-width: 490px;
@@ -14,7 +15,7 @@
   }
 }
 
-.task__header {
+.main__header {
   padding: 3.5rem 2rem;
 
   @include m-mqMax {
@@ -30,11 +31,11 @@
   &.item--box {
     line-height: 1.2;
     padding: .7rem 1.8rem;
-    border:  .5rem solid $white;
+    border: .5rem solid $white;
 
     @include m-mqMax {
       padding: 5px 15px;
-      border:  3px solid $white;
+      border: 3px solid $white;
     }
   }
 }
@@ -49,7 +50,7 @@
   }
 }
 
-.task__body {
+.main__body {
   margin-top: 11.5rem;
 
   @include m-mqMax {
@@ -109,6 +110,10 @@
     font-size: 12px;
     padding: 5px 15px;
     letter-spacing: .1em;
+
+    .login & {
+      font-size: 16px;
+    }
   }
 }
 
@@ -121,11 +126,11 @@
   min-height: 10rem;
   padding: 4rem 3rem;
   border-radius: 1.8rem;
-  border:  .5rem solid $white;
+  border: .5rem solid $white;
 
   @include m-mqMax {
     border-radius: 14px;
-    border:  3px solid $white;
+    border: 3px solid $white;
     padding: 25px 15px;
     min-height: 35px;
   }
@@ -195,6 +200,7 @@
   &.char--soldier {
     left: -7rem;
     bottom: -8rem;
+    animation: breathAnimation 2s infinite;
 
     @include m-mqMax {
       width: 5.5rem;
@@ -207,6 +213,7 @@
     width: 14.8rem;
     right: -9.5rem;
     top: -7rem;
+    animation: princeAnimation 2s infinite;
 
     @include m-mqMax {
       width: 90px;
@@ -217,7 +224,7 @@
 
   &.char--treasureBlack {
     width: 17.2rem;
-    transform: scaleX(-1);
+    animation: crawlAnimation2 2s infinite;
 
     @include m-mqMax {
       width: 100px;
@@ -229,7 +236,7 @@
     left: -6.8rem;
     bottom: -3rem;
     width: 13.6rem;
-    transform: scaleX(-1) rotate(7deg);
+    animation: ghostWhiteTask 3s infinite;
 
     @include m-mqMax {
       width: 80px;
@@ -242,6 +249,7 @@
     width: 26rem;
     right: -13rem;
     top: -13.8rem;
+    animation: floatAnimation 2s infinite;
 
     @include m-mqMax {
       width: 150px;
@@ -254,6 +262,7 @@
     width: 17.5rem;
     right: -8.5rem;
     bottom: -4.5rem;
+    animation: shakeAnimation 2s 2s infinite;
 
     @include m-mqMax {
       width: 100px;
@@ -287,4 +296,33 @@
   @include m-mqMax {
     font-size: 18px;
   }
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  /* Height of the progress bar */
+  background-color: #eee;
+  z-index: 9999;
+}
+
+.loader__bar {
+  height: 100%;
+  background-color: #007bff;
+  /* Progress bar color */
+  width: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+
+// Initial position for gsap animation
+.fadeInUp,
+.main__header,
+.collection__item {
+  // opacity: 0;
+  // transform: translateY(100px);
+  visibility: hidden;
 }
